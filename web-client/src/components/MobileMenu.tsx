@@ -17,7 +17,7 @@ export default function MobileMenu (): JSX.Element {
         >
           <Close />
         </div>
-        <MobileLinks />
+        <MobileLinks setIsNavOpen={setIsNavOpen} />
       </div>
       <style>{`
           .hideMenuNav {
