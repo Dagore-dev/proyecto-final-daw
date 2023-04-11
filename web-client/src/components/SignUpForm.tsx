@@ -6,7 +6,7 @@ import useSignUp from '../hooks/useSignUp'
 
 export default function SignUpForm (): JSX.Element {
   const [signUpState, setSignUpState] = useState(signUpFieldsKeys)
-  const { signUp } = useSignUp()
+  const { signUp, isLoading, error } = useSignUp()
 
   return (
     <form onSubmit={handleSubmit} className='mt-8 space-y-6'>
@@ -27,7 +27,8 @@ export default function SignUpForm (): JSX.Element {
             />)
         }
       </div>
-      <FormAction text='Regístrate' />
+      <FormAction text='Regístrate' disabled={isLoading} />
+      <p className='text-red-600'>{error}</p>
     </form>
   )
 

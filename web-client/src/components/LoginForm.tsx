@@ -6,7 +6,7 @@ import useLogin from '../hooks/useLogin'
 
 export default function LoginForm (): JSX.Element {
   const [loginState, setLoginState] = useState(loginFieldsKeys)
-  const { login } = useLogin()
+  const { login, isLoading, error } = useLogin()
 
   return (
     <form onSubmit={handleSubmit} className='mt-8 space-y-6'>
@@ -27,7 +27,8 @@ export default function LoginForm (): JSX.Element {
             />)
         }
       </div>
-      <FormAction text='Inicia sesión' />
+      <FormAction disabled={isLoading} text='Inicia sesión' />
+      <p className='text-red-600'>{error}</p>
     </form>
   )
 
